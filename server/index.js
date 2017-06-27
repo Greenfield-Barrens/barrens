@@ -6,7 +6,7 @@ const app = express();
 
 app.use(express.static(__dirname + '/../client/dist'));
 
-app.get('/areas/barrens', (req, res) => {
+app.get('/channels/barrens', (req, res) => {
   items.selectAll((err, data) => {
     err ? res.sendStatus(500) : res.json(data);
   });

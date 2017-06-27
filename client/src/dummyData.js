@@ -1,4 +1,4 @@
-export const dummyAreas = [
+export const dummyChannels = [
   {
     name: 'Barrens',
     id: 0,
@@ -31,5 +31,20 @@ export const dummyMessages = [
     id: 2,
     userId: 10,
     text: 'Pups'
+  }
+];
+
+export const dummyUsers = [
+  {
+    id: 0,
+    name: 'test',
+  },
+  {
+    id: 1,
+    name: 'something'
+  },
+  {
+    id: 2,
+    name: 'icles'
   }
 ];

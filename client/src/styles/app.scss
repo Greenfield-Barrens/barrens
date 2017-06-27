@@ -1,0 +1,43 @@
+body {
+  background-color: #eee;
+}
+
+.title, .navbar {
+  text-align: center;
+}
+
+.app .title {
+  margin: 2rem;
+}
+
+.navbar {
+  min-height: 0;
+  padding: 0;
+  margin: 1rem;
+}
+
+.messages-events {
+  float: left;
+}
+
+.signup-login {
+  float: right;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+.channel-list {
+  margin-right: 2rem;
+  background-color: salmon;
+}
+
+.user-list {
+  background-color: lightpink;
+}
+
+.message-list {
+  width: 60%;
+  background-color: lightblue;
+}
