@@ -36,7 +36,7 @@ Enter PSQL Prompt
 
 psql
 
-IMPORTANT: To Run the DB in PSQL
+IMPORTANT: To Run the DB's sql file in PSQL
 
 psql -f db.sql
 
@@ -44,14 +44,22 @@ List all DBs
 
 \l
 
+Connect to a particular DB
+
+\c dbName
+
 View all Tables
 
-\d
+\d or \dt (for all user created tables)
 
 Exit out of PSQL
 
 Control + D, or
 \q
+
+Delete rows from table
+
+Delete from [table-name]
 
 > Useful PSQL SQL Queries
 
@@ -76,10 +84,14 @@ Creating Areas:
 
 "INSERT into areas VALUES (string, create polygon with location);"
 
-"INSERT into areas VALUES ('SF', ST_Polygon(ST_GeomFromText('LINESTRING(75.15 29.53,77 29,77.6 29.5, 75.15 29.53)'), 4326);"
+"INSERT into areas VALUES (DEFAULT, 'Noe-Mission', ST_Polygon(ST_GeomFromText('LINESTRING(37.7453366 -122.4379927, 37.7481003 -122.415084, 37.76088 -122.4127313, 37.7607018 122.4360408, 37.7453366 -122.4379927)'), 4326)); " To create a box (4 edges), you will need to specify 5 coordinate pairs. (To close the box, you must create a line from the end of the last line back to the original point) 
+
+Additionally, to make use of the auto-increment that comes with a 'SERIAL' column, you must specify 'DEFAULT' in the SERIAL-ized column value position.
 
 Sample Code/Template
 "GeomFromText('POLYGON((long1 lat1, long2 lat2, long3 lat3))');"
+--
+ST_Polygon(ST_GeomFromText('LINESTRING(75.15 29.53,77 29,77.6 29.5, 75.15 29.53)'), 4326);
 
 Creating Long & Lat Points for Messages (x, y)
 
@@ -92,13 +104,13 @@ Sample Command: "SELECT ST_Contains("POLYGON", ST_SetSRID(ST_MakePoint(-71.0, 42
 
 > PostGIS Resources:
 
+https://gist.github.com/clhenrick/ebc8dc779fb6f5ee6a88 (postGIS cheat-sheet)
+
 http://postgis.net/
 
 https://postgis.net/docs/ST_MakePoint.html
 
 https://postgis.net/docs/ST_Contains.html
-
-https://postgis.net/docs/ST_MakePoint.html
 
 ## Requirements
 

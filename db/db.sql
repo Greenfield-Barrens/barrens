@@ -7,20 +7,22 @@ CREATE DATABASE barrens;
 \c barrens;
 
 -- Enable PostGIS (includes raster); Required for geo-location
+-- You should use GEOMETRY somewhere in the areas so you can use ST_Contains
 CREATE EXTENSION postgis;
 
 CREATE TABLE areas (
   ID SERIAL PRIMARY KEY,
   name VARCHAR UNIQUE NOT NULL,
-  geom POLYGON
+  minLong DOUBLE PRECISION,
+  minLat DOUBLE PRECISION,
+  maxLong DOUBLE PRECISION,
+  maxLat DOUBLE PRECISION,
 );
 
 CREATE TABLE users (
   ID SERIAL PRIMARY KEY,
   username VARCHAR UNIQUE NOT NULL,
   points INTEGER,
-  session BOOLEAN NOT NULL,
-  hash VARCHAR NOT NULL,
   salt VARCHAR UNIQUE
 );
 -- chkpass is alternative data type, needs ckpass module installed
@@ -47,8 +49,8 @@ CREATE TABLE messages (
   upvotes SMALLINT,
   downvotes SMALLINT,
   area VARCHAR REFERENCES areas (name),
-  stamp TIMESTAMPTZ NOT NULL,
-  location POINT NOT NULL
+  stamp TIMESTAMPTZ,
+  location POINT
 );
 
 -- Table Schema for Authentication
