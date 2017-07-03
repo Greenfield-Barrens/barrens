@@ -1,10 +1,8 @@
 /***
 Sample for how a database would be created via running query scripts.
 Default Port: 5432
-
 Example for Connecting NodeJS to PostgreSQL
 http://nodeexamples.com/2012/09/21/connecting-to-a-postgresql-database-from-node-js-using-the-pg-module/
-
 ***/
 
 const pg = require('pg');
@@ -29,13 +27,9 @@ query.on('end', () => { client.end(); });
 
 /***
 To Do
-
 also more of a general db thing @artliou , but can you also 
-
 create the file that includes the config options and creates a pool that we can use throughout the rest of the project?
-
 1-
 2-Command Lines Documentation
 3-User/Events Join Table
-
 ***/

@@ -45,7 +45,6 @@ module.exports.connect = function (callback) {
   return pool.connect(callback);
 };
 
-
 /*** Passing a Query to the Pool
 const pool = require('./lib/db');
  

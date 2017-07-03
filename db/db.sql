@@ -29,7 +29,7 @@ CREATE TABLE users (
 
 CREATE TABLE events (
   ID SERIAL PRIMARY KEY,
-  area VARCHAR REFERENCES areas (name),
+  area integer REFERENCES areas (id),
   description VARCHAR,
   url VARCHAR
 );
@@ -37,18 +37,18 @@ CREATE TABLE events (
 CREATE TABLE channels (
   ID SERIAL PRIMARY KEY,
   name VARCHAR UNIQUE NOT NULL,
-  users VARCHAR REFERENCES users (username),
-  areas VARCHAR REFERENCES areas (name)
+  users INTEGER REFERENCES users (id),
+  areas INTEGER REFERENCES areas (id)
 );
 
 CREATE TABLE messages (
   ID SERIAL PRIMARY KEY,
-  username VARCHAR REFERENCES users (username),
+  username INTEGER REFERENCES users (id),
   content TEXT NOT NULL,
-  channels VARCHAR REFERENCES channels (name),
+  channels INTEGER REFERENCES channels (id),
   upvotes SMALLINT,
   downvotes SMALLINT,
-  area VARCHAR REFERENCES areas (name),
+  area INTEGER REFERENCES areas (id),
   stamp TIMESTAMPTZ,
   location POINT
 );
