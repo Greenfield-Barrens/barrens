@@ -6,7 +6,7 @@ const MessageList = ({ messages, user }) => {
   const messagesInChannel = messages.filter(message => message.channel === user.channel);
   const messageItems = messagesInChannel.length
     ? messagesInChannel.map(message =>
-        <MessageListItem key={message.id} message={message} user={user} />
+        <MessageListItem message={message} user={user} />
       )
     : <h4> No messages in this channel since login... Get the conversation going! </h4>;
   return (

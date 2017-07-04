@@ -7,7 +7,7 @@ const UserList = ({users, user}) => {
   return (
     <div className="user-list">
       <h4 className="title">Users Talking in this Region</h4>
-      { users.map(username => <UserListItem key={user.id} username={username} />) }
+      { users.map(username => <UserListItem username={username} />) }
     </div>
   );
 };
